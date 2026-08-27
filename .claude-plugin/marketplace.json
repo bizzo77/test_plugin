@@ -1,0 +1,7 @@
+{
+  "name": "brainbox-test",
+  "owner": { "name": "Jim Badans" },
+  "plugins": [
+    { "name": "brainbox", "source": "./brainbox", "description": "BrainBox test plugin" }
+  ]
+}

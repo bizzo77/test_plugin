@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"BRAINBOX-HOOK-FIRED-OK - session opened $(date '+%A %d %B %Y at %I:%M:%S %p')\" >> \"$HOME/Desktop/BRAINBOX-TRIGGER-PROOF.txt\" && echo BRAINBOX-HOOK-FIRED-OK"
+          }
+        ]
+      }
+    ]
+  }
+}

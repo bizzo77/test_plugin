@@ -1,0 +1,5 @@
+{
+  "name": "brainbox",
+  "version": "0.0.3",
+  "description": "BrainBox delivery test: one skill, one inline command hook that leaves a dated note on the Desktop, no script file"
+}
