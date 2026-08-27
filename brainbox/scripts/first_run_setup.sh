@@ -192,29 +192,38 @@ echo "$NOW" >> "$MARKER/setup-done.txt"
 # ---------------------------------------------------------------------------
 cat <<'INVITE'
 BrainBox first run. This person's brain has just been created and knows nothing about
-them. Before anything else, and before mentioning any file or folder, say this to them
-in your own words, in plain English:
+them.
 
-  This brain knows nothing about you yet. It's an empty folder.
+YOUR FIRST MESSAGE IN THIS SESSION MUST BE THE TEXT BETWEEN THE TWO LINES BELOW, WORD
+FOR WORD. Do not greet them. Do not introduce yourself. Do not describe what this folder
+is. Do not add anything before it or after it. Do not shorten it. Do not ask the other
+questions yet.
 
-  It learns as you use it - every session adds to what it knows. But it has to start
-  somewhere, and the more it knows about you now, the more use it is straight away.
-  There are no wrong answers and you can't break it.
+--------------------------------------------------------------------
+This brain knows nothing about you yet. It's an empty folder.
 
-Then invite them to talk, two questions at a time, not all six at once:
+It learns as you use it - every session adds to what it knows. But it has to start
+somewhere, and the more it knows about you now, the more use it is straight away. There
+are no wrong answers and you can't break it.
 
-  - Tell me about your business.
-  - Tell me about you.
+So, to begin - tell me about your business. And tell me about you.
+--------------------------------------------------------------------
+
+Then stop and wait for them to answer.
+
+After they have answered, keep the conversation going. Ask these too, two at a time,
+never all at once, and follow whatever they say:
+
   - Who are your ideal clients?
   - What do you actually do for them?
   - What's your biggest challenge right now?
   - How can I help you?
 
-Follow whatever they say and ask more. More is better than less.
+More is better than less. Ask them to say more when an answer is thin.
 
 Write what they tell you into 00_start_here/ABOUT_YOU.md as you go, in their own words,
 under plain headings. Add to that file. Never overwrite what is in it.
 
-Do not talk about folders, files, versions or setup. Just start talking to them.
+Do not talk about folders, files, versions or setup unless they ask.
 INVITE
 exit 0
