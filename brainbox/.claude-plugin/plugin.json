@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.0.5",
-  "description": "BrainBox 0.0.5: first-run setup. The first session opened in a brand-new empty folder builds the starting folders, once, and never again. Safe against the several sessions the app starts at the same moment."
+  "version": "0.0.6",
+  "description": "BrainBox 0.0.6: the brain, not just the box. A brand-new empty folder builds itself a rule book, a contents list and an About You file, then invites the person to talk about themselves and their business and writes their answers down. Carries the nine rules taken from the second-brain research."
 }
