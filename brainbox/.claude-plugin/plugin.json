@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.0.4",
-  "description": "BrainBox delivery test 0.0.4: proves a new version reaches an already-installed machine on its own. The trigger now writes a different, clearly marked line."
+  "version": "0.0.5",
+  "description": "BrainBox 0.0.5: first-run setup. The first session opened in a brand-new empty folder builds the starting folders, once, and never again. Safe against the several sessions the app starts at the same moment."
 }

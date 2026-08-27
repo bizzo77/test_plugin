@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"*** VERSION 0.0.4 IS HERE *** the new version arrived on its own - session opened $(date '+%A %d %B %Y at %I:%M:%S %p')\" >> \"$HOME/Desktop/BRAINBOX-TRIGGER-PROOF.txt\" && echo BRAINBOX-HOOK-FIRED-OK-V004"
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/first_run_setup.sh\""
           }
         ]
       }
