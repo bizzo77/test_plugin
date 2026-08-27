@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.0.3",
-  "description": "BrainBox delivery test: one skill, one inline command hook that leaves a dated note on the Desktop, no script file"
+  "version": "0.0.4",
+  "description": "BrainBox delivery test 0.0.4: proves a new version reaches an already-installed machine on its own. The trigger now writes a different, clearly marked line."
 }
