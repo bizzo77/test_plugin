@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.0.7",
-  "description": "BrainBox 0.0.7: the brain, not just the box. A brand-new empty folder builds itself a rule book, a contents list and an About You file, then invites the person to talk about themselves and their business and writes their answers down. Carries the nine rules taken from the second-brain research."
+  "version": "0.0.8",
+  "description": "BrainBox 0.0.8: the brain now has its own voice and its own opening. A new folder gets a rule book whose first section is the exact opening words, a ban on greeting, naming or offering to skip, and an output style set inside the folder so the brain never inherits the tone or the name of whoever set up the machine."
 }
