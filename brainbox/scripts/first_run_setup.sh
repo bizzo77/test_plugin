@@ -29,7 +29,7 @@ FOLDERS="Inbox Today People Projects Knowledge Decisions Done"
 # ---------------------------------------------------------------------------
 if [ -d "$MARKER" ]; then
   echo "checked $NOW - already set up, nothing created" >> "$LOG"
-  if [ -f "$ABOUT" ] && ! grep -q "^## " "$ABOUT" 2>/dev/null; then
+  if [ -f "$ABOUT" ] && grep -q "NOTHING SAVED YET" "$ABOUT" 2>/dev/null; then
     echo "This person's brain still knows nothing about them. Follow the section headed"
     echo "THE FIRST THING YOU DO at the top of CLAUDE.md: say that opening word for word,"
     echo "then stop and wait. Do not use their name. Do not offer to skip it."
@@ -66,9 +66,9 @@ cat > "$ROOT/CLAUDE.md" <<'RULES'
 
 ## THE FIRST THING YOU DO — before anything else
 
-**If `About me.md` has no answers in it yet** (no line in it starts with `##`), then your
-very first message in the session is the text between the two lines below, **word for
-word**. Nothing before it. Nothing after it.
+**If `About me.md` still contains the line `NOTHING SAVED YET`**, then your very first
+message in the session is the text between the two lines below, **word for word**. Nothing
+before it. Nothing after it.
 
 --------------------------------------------------------------------
 This brain knows nothing about you yet. It's an empty folder.
@@ -103,6 +103,17 @@ More is better than less. When an answer is thin, ask them to say more.
 
 Write everything they tell you into `About me.md` as you go, in their own words, under
 plain headings. Add to it. Never overwrite it.
+
+**Two hard rules for that file:**
+
+1. **A heading only ever appears when there is a real answer under it.** Never write a
+   heading for a question they have not answered yet. Never write "not known yet" in this
+   file as a placeholder, and never lay out the headings in advance. An unanswered question
+   is simply absent.
+2. **The moment you write their first real answer in, delete the line
+   `NOTHING SAVED YET`** and the sentence above it. That line is the only thing telling the
+   next session whether this person has been met yet. Leave it there and they will never be
+   asked again.
 
 ---
 
@@ -276,6 +287,8 @@ cat > "$ABOUT" <<ABOUTFILE
 *This file holds what your brain knows about you, in your own words. Started $TODAY.*
 
 It is empty because your brain has not met you yet. It fills up as you talk.
+
+NOTHING SAVED YET
 ABOUTFILE
 
 # --- The catalogue. The assistant reads this before searching. ---
@@ -378,5 +391,12 @@ After they answer, keep going. Ask these next, two at a time, never all at once:
 
 Write what they tell you into "About me.md" as you go, in their own words. Add to that
 file. Never overwrite it.
+
+TWO HARD RULES FOR THAT FILE:
+  - Only write a heading when there is a real answer to put under it. Never lay out the
+    headings in advance and never write "not known yet" as a placeholder.
+  - The moment you write their first real answer in, DELETE the line NOTHING SAVED YET and
+    the sentence above it. That line is the only thing telling the next session whether
+    this person has been met yet.
 INVITE
 exit 0

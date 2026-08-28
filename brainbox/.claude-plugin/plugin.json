@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.0.9",
-  "description": "BrainBox 0.0.9: the researched folder structure. A new brain is built as Inbox, Today, People, Projects, Knowledge, Decisions and Done, with START HERE, About me and Catalogue at the top. The placeholder folders are gone. The rule book now says the user files nothing - the assistant does it all - and Inbox is the only folder they ever touch."
+  "version": "0.0.10",
+  "description": "BrainBox 0.0.10: fixes a fault where the brain switched off its own opening. It used to decide whether it had met you by looking for headings in About me, then wrote six empty headings itself and never asked again. It now uses a marker line it deletes when a real answer arrives, and it is forbidden from writing a heading for a question you have not answered."
 }
