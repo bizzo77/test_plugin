@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.0.12",
-  "description": "BrainBox 0.0.12: ten blank spots in About me instead of four. Adds the basic context a brain needs to be useful on day one - who else is in the business, how the money works, what is being worked on right now, what is on this quarter, how the owner wants to be spoken to, and what they want more and less of. The brain is told plainly not to fire them off as a form."
+  "version": "0.0.13",
+  "description": "BrainBox 0.0.13: nothing in a new brain assumes what kind of business it belongs to. The word 'clients' is gone from the questions, the folder descriptions and the examples, and the brain is told to listen for the word the owner uses - customers, clients, patients, students, members - and use that word back from then on."
 }
