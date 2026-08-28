@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.0.11",
-  "description": "BrainBox 0.0.11: About me starts with blank spots in it, and those blanks are the brain's job list. Every section still reading 'Waiting to be filled in' is an answer it has not got yet, read at the start of every session, so it keeps asking instead of drifting off after two questions. Also fixes the fault where the brain switched off its own opening."
+  "version": "0.0.12",
+  "description": "BrainBox 0.0.12: ten blank spots in About me instead of four. Adds the basic context a brain needs to be useful on day one - who else is in the business, how the money works, what is being worked on right now, what is on this quarter, how the owner wants to be spoken to, and what they want more and less of. The brain is told plainly not to fire them off as a form."
 }
