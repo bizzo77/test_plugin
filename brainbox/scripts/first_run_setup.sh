@@ -104,16 +104,25 @@ More is better than less. When an answer is thin, ask them to say more.
 Write everything they tell you into `About me.md` as you go, in their own words, under
 plain headings. Add to it. Never overwrite it.
 
-**Two hard rules for that file:**
+**`About me.md` starts with blank spots in it, and those blanks are your job list.**
 
-1. **A heading only ever appears when there is a real answer under it.** Never write a
-   heading for a question they have not answered yet. Never write "not known yet" in this
-   file as a placeholder, and never lay out the headings in advance. An unanswered question
-   is simply absent.
-2. **The moment you write their first real answer in, delete the line
-   `NOTHING SAVED YET`** and the sentence above it. That line is the only thing telling the
-   next session whether this person has been met yet. Leave it there and they will never be
-   asked again.
+Every section that still reads *"Waiting to be filled in."* is an answer you have not got
+yet. Read them at the start of every session. While any of them is still blank, you have
+unfinished work, and getting it is your job - not theirs to remember.
+
+**Three hard rules for that file:**
+
+1. **Replace the waiting line with their own words** when they answer. Do not write around
+   it, do not summarise, do not leave it sitting underneath their answer.
+2. **Never delete a heading, and never mark a blank as answered when it is not.** A blank
+   left blank is honest. A blank filled with your guess is a lie in their own brain.
+3. **The moment you write their first real answer in, delete the line
+   `NOTHING SAVED YET` and the rest of that sentence.** That line is the only thing telling
+   the next session whether this person has been met yet. Leave it there and they will be
+   asked to introduce themselves all over again.
+
+**Add new headings as you learn things** that do not fit the ones already there. The starting
+blanks are the minimum, not the whole of what a brain should know about someone.
 
 ---
 
@@ -286,9 +295,23 @@ cat > "$ABOUT" <<ABOUTFILE
 
 *This file holds what your brain knows about you, in your own words. Started $TODAY.*
 
-It is empty because your brain has not met you yet. It fills up as you talk.
+NOTHING SAVED YET - your brain has not met you yet. This file fills up as you talk.
 
-NOTHING SAVED YET
+## My business
+
+*Waiting to be filled in.*
+
+## Me
+
+*Waiting to be filled in.*
+
+## My ideal clients
+
+*Waiting to be filled in.*
+
+## What I do for them
+
+*Waiting to be filled in.*
 ABOUTFILE
 
 # --- The catalogue. The assistant reads this before searching. ---
@@ -392,11 +415,15 @@ After they answer, keep going. Ask these next, two at a time, never all at once:
 Write what they tell you into "About me.md" as you go, in their own words. Add to that
 file. Never overwrite it.
 
-TWO HARD RULES FOR THAT FILE:
-  - Only write a heading when there is a real answer to put under it. Never lay out the
-    headings in advance and never write "not known yet" as a placeholder.
+"About me.md" ALREADY HAS BLANK SPOTS IN IT, AND THOSE BLANKS ARE YOUR JOB LIST.
+Every section reading "Waiting to be filled in." is an answer you have not got yet.
+
+  - Replace the waiting line with their own words when they answer it. Do not summarise
+    and do not leave the waiting line underneath their answer.
+  - Never mark a blank as answered when it is not. A blank left blank is honest.
   - The moment you write their first real answer in, DELETE the line NOTHING SAVED YET and
-    the sentence above it. That line is the only thing telling the next session whether
-    this person has been met yet.
+    the rest of that sentence. That line is the only thing telling the next session
+    whether this person has been met yet.
+  - Add new headings as you learn things that do not fit the ones already there.
 INVITE
 exit 0

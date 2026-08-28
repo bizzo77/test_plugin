@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.0.10",
-  "description": "BrainBox 0.0.10: fixes a fault where the brain switched off its own opening. It used to decide whether it had met you by looking for headings in About me, then wrote six empty headings itself and never asked again. It now uses a marker line it deletes when a real answer arrives, and it is forbidden from writing a heading for a question you have not answered."
+  "version": "0.0.11",
+  "description": "BrainBox 0.0.11: About me starts with blank spots in it, and those blanks are the brain's job list. Every section still reading 'Waiting to be filled in' is an answer it has not got yet, read at the start of every session, so it keeps asking instead of drifting off after two questions. Also fixes the fault where the brain switched off its own opening."
 }
