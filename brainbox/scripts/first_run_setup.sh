@@ -14,12 +14,15 @@ set -u
 ROOT="${CLAUDE_PROJECT_DIR:-$PWD}"
 MARKER="$ROOT/.brainbox"
 LOG="$ROOT/BrainBox-setup-log.txt"
-ABOUT="$ROOT/00_start_here/ABOUT_YOU.md"
+ABOUT="$ROOT/About me.md"
 NOW="$(date '+%A %d %B %Y at %I:%M:%S %p')"
 TODAY="$(date '+%-d %B %Y')"
 
-# The starting folders. PLACEHOLDER NAMES - not yet chosen by Jim.
-FOLDERS="00_start_here 01_current_state 02_projects 03_decisions 04_reference 99_archive"
+# The folders. These are the researched structure from
+# 05_design/BRAINBOX_DESIGN_v1.md, which came out of the second brain research in
+# 04_research/. Jim's instruction, 28 August 2026: build the researched structure,
+# not a made-up one.
+FOLDERS="Inbox Today People Projects Knowledge Decisions Done"
 
 # ---------------------------------------------------------------------------
 # 1. Already set up? Stop. This is the "never again" guard.
@@ -63,9 +66,9 @@ cat > "$ROOT/CLAUDE.md" <<'RULES'
 
 ## THE FIRST THING YOU DO — before anything else
 
-**If `00_start_here/ABOUT_YOU.md` has no answers in it yet** (no line in it starts with
-`##`), then your very first message in the session is the text between the two lines
-below, **word for word**. Nothing before it. Nothing after it.
+**If `About me.md` has no answers in it yet** (no line in it starts with `##`), then your
+very first message in the session is the text between the two lines below, **word for
+word**. Nothing before it. Nothing after it.
 
 --------------------------------------------------------------------
 This brain knows nothing about you yet. It's an empty folder.
@@ -98,8 +101,8 @@ and follow whatever they say:
 
 More is better than less. When an answer is thin, ask them to say more.
 
-Write everything they tell you into `00_start_here/ABOUT_YOU.md` as you go, in their own
-words, under plain headings. Add to it. Never overwrite it.
+Write everything they tell you into `About me.md` as you go, in their own words, under
+plain headings. Add to it. Never overwrite it.
 
 ---
 
@@ -116,17 +119,41 @@ different one.
 **The files are the brain. The conversation is not.** Chats get thrown away. Anything that
 matters has to be written into a file here before the session ends, or it never happened.
 
+## They never file anything. You do.
+
+`Inbox/` is the only folder they ever need to touch, and they do not have to use it. They
+put anything in there, in any state, with no decision to make. **You write everything
+else.** Never ask them where something should go, never ask them to tag or label
+anything, and never ask them to tidy up. The moment of deciding where a thing belongs is
+where every other system loses people.
+
+Clear the Inbox as part of your work: read what is in there, put it where it belongs, and
+tell them what you did.
+
+## What each folder is for
+
+- **`Inbox/`** — anything, unsorted. Theirs to throw things into.
+- **`Today/`** — one page per day. What happened, what was said, where things got to.
+- **`People/`** — one page per person. Clients, staff, contacts. It updates as you learn.
+- **`Projects/`** — one page or folder per live piece of work. Filed by what they are
+  doing, not by subject.
+- **`Knowledge/`** — things that stay true. Their methods, their material, what they know.
+- **`Decisions/`** — what was decided, when, and why. Dated, never deleted, never quietly
+  reversed.
+- **`Done/`** — finished work, and files that have been replaced. Nothing is ever deleted;
+  it moves here.
+
 ## Remember every session
 
 Write things down as you go, not at the end.
 
-- Anything they tell you about themselves or their business goes into
-  `00_start_here/ABOUT_YOU.md`, in their own words.
-- Anything they decide goes into `03_decisions/`, with the date and the reason.
+- Anything they tell you about themselves or their business goes into `About me.md`, in
+  their own words.
+- Anything they decide goes into `Decisions/`, with the date and the reason.
 - Anything they say they want, doubt, or are weighing up goes into a file the same session,
   before you move on. This is the easiest thing in the world to lose.
-- Before the session ends, write where things are up to in `01_current_state/`, so the next
-  session picks up the thread instead of starting again.
+- Before the session ends, write where things are up to in today's page in `Today/`, so the
+  next session picks up the thread instead of starting again.
 
 ## Date every fact, or point at where the truth lives
 
@@ -161,8 +188,8 @@ only, or you are guessing.
 Before you create anything, look for a file that already covers it. If there is one, add to
 it. Never leave two files arguing about the same thing.
 
-When a file is genuinely replaced, move the old one to `99_archive/` with a note at the top
-saying what replaced it. Never delete it.
+When a file is genuinely replaced, move the old one to `Done/` with a note at the top saying
+what replaced it. Never delete it.
 
 ## Every file opens by saying what it is
 
@@ -170,11 +197,16 @@ The first two or three sentences of every file say what it is, why it was kept, 
 A later session may open that one file with nothing else around it, and needs to know in ten
 seconds whether it matters.
 
-## Keep the contents list up to date
+## Keep the catalogue up to date
 
-`00_start_here/CONTENTS.md` lists every file with one line saying what is in it. Read it at
-the start of a session - reading one list is faster than hunting through everything. Add a
-line to it every time you make a new file.
+`Catalogue.md` lists every file with one line saying what is in it. Read it at the start of a
+session - reading one list is faster than hunting through everything. Add a line to it every
+time you make a new file.
+
+## One save updates everything it touches
+
+When you write something, update the catalogue, today's page, and any file that now says
+something out of date. Never leave one part of the brain contradicting another.
 
 ## Only ever add
 
@@ -220,10 +252,12 @@ Never say they have not got something without properly looking for it first.
 
 Never delete, merge or tidy away their work. Only ever add.
 
+Never ask them to file, tag, sort or tidy anything. That is your job, not theirs.
+
 ## What you always do
 
 Write things down as you go. Anything they tell you about themselves goes into their
-About You file. Anything they decide goes into Decisions. Anything they say they want
+About me file. Anything they decide goes into Decisions. Anything they say they want
 gets written down the same session, before you move on.
 
 Date every fact, or say where the real answer lives. "13 clients" becomes "13 clients as
@@ -237,47 +271,73 @@ STYLE
 
 # --- Where their own answers go. ---
 cat > "$ABOUT" <<ABOUTFILE
-# About you
+# About me
 
 *This file holds what your brain knows about you, in your own words. Started $TODAY.*
 
 It is empty because your brain has not met you yet. It fills up as you talk.
 ABOUTFILE
 
-# --- The contents list. ---
-cat > "$ROOT/00_start_here/CONTENTS.md" <<CONTENTSFILE
+# --- The catalogue. The assistant reads this before searching. ---
+cat > "$ROOT/Catalogue.md" <<CATALOGUEFILE
 # What is in this brain
 
 *A list of every file, with one line saying what is in it. Started $TODAY.*
 *Read this first. Add a line to it every time a new file is made.*
 
-- \`CLAUDE.md\` - the rule book. How this brain works.
-- \`README.txt\` - what this folder is, for a human.
-- \`00_start_here/ABOUT_YOU.md\` - who you are, in your own words.
-- \`00_start_here/CONTENTS.md\` - this list.
-- \`01_current_state/\` - where things are up to right now.
-- \`02_projects/\` - one folder per thing you are working on.
-- \`03_decisions/\` - what you decided, when, and why.
-- \`04_reference/\` - things worth keeping that are not yours.
-- \`99_archive/\` - replaced files. Never deleted, just moved here.
-CONTENTSFILE
+- \`START HERE.md\` - what this folder is, and how to use it.
+- \`About me.md\` - who you are, in your own words.
+- \`Catalogue.md\` - this list.
+- \`CLAUDE.md\` - the rule book your assistant reads every session.
+- \`Inbox/\` - anything you want to throw in. The only folder you need to touch.
+- \`Today/\` - one page per day. What happened and where things got to.
+- \`People/\` - one page per person.
+- \`Projects/\` - one per live piece of work.
+- \`Knowledge/\` - things that stay true.
+- \`Decisions/\` - what you decided, when, and why.
+- \`Done/\` - finished, and replaced files. Nothing is ever deleted.
+CATALOGUEFILE
 
-cat > "$ROOT/README.txt" <<README
-BrainBox
-========
+cat > "$ROOT/START HERE.md" <<STARTHERE
+# Start here
 
-This is your second brain. It was set up on $NOW.
+*This is your second brain. It was set up on $NOW. This is the only file you need
+to read.*
 
-It is a plain folder of plain files. Nothing here is locked, and you can open
-any of it yourself.
+## What this is
 
-Start with 00_start_here/CONTENTS.md - it lists everything in here.
+A plain folder of plain files on your own computer. Nothing here is locked. You can open
+any of it in any program, and it is yours whether you keep using BrainBox or not.
 
-The hidden folder .brainbox is how BrainBox knows this setup has already been
-done. Leave it alone.
-README
+## What you do
 
-echo "$NOW - CREATED the brain: folders, rule book, About You, contents list" >> "$LOG"
+Talk to it. That is the whole thing.
+
+You never have to file anything, name anything, tag anything or tidy anything. Your
+assistant writes it all down for you and puts it where it belongs.
+
+If you want to throw something in yourself - a note, a document, a half-finished thought -
+put it in the **Inbox** folder. That is the only folder you ever need to touch, and even
+that is optional.
+
+## What is in here
+
+**Inbox** - anything, in any state. No decision needed.
+**Today** - one page per day. What happened, and where things got to.
+**People** - a page for each person in your business.
+**Projects** - one for each live piece of work.
+**Knowledge** - the things that stay true.
+**Decisions** - what you decided, when, and why.
+**Done** - finished work. Nothing is ever deleted, it just moves here.
+
+**Catalogue.md** lists every file with one line about each. **About me.md** is what your
+brain knows about you.
+
+The hidden folder .brainbox is how BrainBox knows this setup has already been done. Leave
+it alone.
+STARTHERE
+
+echo "$NOW - CREATED the brain: Inbox Today People Projects Knowledge Decisions Done, rule book, About me, Catalogue, START HERE" >> "$LOG"
 echo "$NOW" >> "$MARKER/setup-done.txt"
 
 # ---------------------------------------------------------------------------
@@ -316,7 +376,7 @@ After they answer, keep going. Ask these next, two at a time, never all at once:
   - What's your biggest challenge right now?
   - How can I help you?
 
-Write what they tell you into 00_start_here/ABOUT_YOU.md as you go, in their own words.
-Add to that file. Never overwrite it.
+Write what they tell you into "About me.md" as you go, in their own words. Add to that
+file. Never overwrite it.
 INVITE
 exit 0

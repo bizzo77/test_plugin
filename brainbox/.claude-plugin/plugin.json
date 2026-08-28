@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.0.8",
-  "description": "BrainBox 0.0.8: the brain now has its own voice and its own opening. A new folder gets a rule book whose first section is the exact opening words, a ban on greeting, naming or offering to skip, and an output style set inside the folder so the brain never inherits the tone or the name of whoever set up the machine."
+  "version": "0.0.9",
+  "description": "BrainBox 0.0.9: the researched folder structure. A new brain is built as Inbox, Today, People, Projects, Knowledge, Decisions and Done, with START HERE, About me and Catalogue at the top. The placeholder folders are gone. The rule book now says the user files nothing - the assistant does it all - and Inbox is the only folder they ever touch."
 }
