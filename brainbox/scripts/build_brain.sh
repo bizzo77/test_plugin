@@ -1,0 +1,53 @@
+#!/bin/bash
+# Builds a new brain, once, the first time a session opens in an empty folder.
+#
+# It copies the files in ../brain/ and stamps today's date into them. It holds none
+# of the brain's own wording - every file a new owner gets is a real file sitting in
+# ../brain/, so it can be read and changed on its own.
+#
+# The lock: the desktop app opens several sessions in the same second, so this can
+# start three or four times at once. Only one may build. "mkdir" either succeeds or
+# fails, and only one caller can ever succeed.
+
+set -u
+
+ROOT="${CLAUDE_PROJECT_DIR:-$PWD}"
+SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/../brain" && pwd)"
+MARKER="$ROOT/.brainbox"
+LOG="$ROOT/BrainBox-setup-log.txt"
+NOW="$(date '+%A %d %B %Y at %I:%M:%S %p')"
+TODAY="$(date '+%-d %B %Y')"
+
+FOLDERS="Inbox Today People Projects Knowledge Decisions Done"
+
+# 1. Already built? Nothing to do. Saying where things are up to is the other script's job.
+[ -d "$MARKER" ] && exit 0
+
+# 2. Not an empty folder? Stay out of it, silently. Somebody else's work.
+CONTENTS="$(ls -A "$ROOT" 2>/dev/null | grep -v '^\.DS_Store$' || true)"
+[ -n "$CONTENTS" ] && exit 0
+
+# 3. The lock. Only one of the simultaneous sessions wins this.
+if ! mkdir "$MARKER" 2>/dev/null; then
+  echo "checked $NOW - another session was already setting up, nothing created" >> "$LOG"
+  exit 0
+fi
+
+# 4. The winner builds.
+for d in $FOLDERS; do mkdir -p "$ROOT/$d"; done
+
+stamp () {  # copy one file, putting the date where the placeholders are
+  sed -e "s/{{TODAY}}/$TODAY/g" -e "s/{{NOW}}/$NOW/g" "$SRC/$1" > "$ROOT/$1"
+}
+stamp "CLAUDE.md"
+stamp "START HERE.md"
+stamp "About me.md"
+stamp "Catalogue.md"
+
+mkdir -p "$ROOT/.claude/output-styles"
+cp "$SRC/dot_claude/settings.json" "$ROOT/.claude/settings.json"
+cp "$SRC/dot_claude/output-styles/brainbox.md" "$ROOT/.claude/output-styles/brainbox.md"
+
+echo "$NOW - CREATED the brain: $FOLDERS, rule book, About me, Catalogue, START HERE" >> "$LOG"
+echo "$NOW" >> "$MARKER/setup-done.txt"
+exit 0

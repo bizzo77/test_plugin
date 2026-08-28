@@ -3,10 +3,24 @@
     "SessionStart": [
       {
         "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/first_run_setup.sh\""
-          }
+          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/build_brain.sh\"" },
+          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/open_session.sh\"" }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/protect_their_work.sh\"" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/check_new_file.sh\"" }
         ]
       }
     ]

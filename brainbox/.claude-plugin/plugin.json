@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.0.13",
-  "description": "BrainBox 0.0.13: nothing in a new brain assumes what kind of business it belongs to. The word 'clients' is gone from the questions, the folder descriptions and the examples, and the brain is told to listen for the word the owner uses - customers, clients, patients, students, members - and use that word back from then on."
+  "version": "0.1.0",
+  "description": "BrainBox 0.1.0: written clean from the research rather than patched. The brain a new owner gets is now a set of real files, not text buried in a script. The rule book is short and holds only what must always be true. The rules that can be checks are checks that run on their own - deleting the owner's work is blocked, new files are checked for an opening line and a catalogue entry, and every session opens by saying where things are up to. Four routines: catch me up, find, check the brain, wrap up. About me has eleven blanks, including what's in my way."
 }
