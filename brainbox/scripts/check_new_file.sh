@@ -40,25 +40,42 @@ $(find "$ROOT/Today" "$ROOT/People" "$ROOT/Projects" "$ROOT/Knowledge" "$ROOT/De
       -type f -name '*.md' 2>/dev/null | head -60)
 EOF
 
-# --- Has About me.md lost one of the headings it shipped with? ---
-# A heading is a question the brain still owes them. Delete one and the question is gone
-# for good, with nothing to say so. This is checked, not left to memory.
-HEADINGS="$ROOT/.brainbox/about-headings.txt"
-ABOUT="$ROOT/About me.md"
-if [ -f "$HEADINGS" ] && [ -f "$ABOUT" ]; then
+# --- Have any of the four shipped files been rewritten? ---
+# About me.md, CLAUDE.md, Catalogue.md and START HERE.md came with this brain. The brain may
+# add to them. It may not rebuild them around headings of its own, because whatever was under
+# the old heading goes with it and nothing says so afterwards. Checked, not left to memory.
+SHIPPED="$ROOT/.brainbox/shipped-headings.txt"
+if [ -f "$SHIPPED" ]; then
   MISSING=""
-  while IFS= read -r h; do
-    [ -z "$h" ] && continue
-    grep -qF "$h" "$ABOUT" || MISSING="$MISSING  - ${h#\#\# }
+  while IFS= read -r line; do
+    [ -z "$line" ] && continue
+    FILE="${line%%:*}"
+    HEADING="${line#*:}"
+    [ -f "$ROOT/$FILE" ] || continue
+    grep -qF "$HEADING" "$ROOT/$FILE" || MISSING="$MISSING  - $FILE  ->  ${HEADING#\#* }
 "
-  done < "$HEADINGS"
+  done < "$SHIPPED"
   if [ -n "$MISSING" ]; then
-    echo "STOP. These headings have gone from About me.md:"
-    printf '%s' "$MISSING"
-    echo "Put them back, spelled exactly as they were, with their waiting line underneath if"
-    echo "they were never answered. Those headings are your job list. Write their answers"
-    echo "underneath the heading that is already there. Never rebuild the file around headings"
-    echo "of your own."
+    echo "STOP. Headings that came with this brain have gone:"
+    printf '%s' "$MISSING" | head -14
+    echo "Put them back, spelled exactly as they were. These four files came with the brain."
+    echo "Add to them underneath the headings already there. Never rebuild one around headings"
+    echo "of your own - whatever was under the old heading goes with it, and nothing afterwards"
+    echo "says it was ever there. In About me.md a missing heading is a question you have"
+    echo "quietly decided never to ask."
+  fi
+fi
+
+# --- Is the brain's own voice still switched on? ---
+# The voice is the one thing never lost when a long session is squeezed, so switching it off
+# quietly is the worst thing that can happen to how this brain talks.
+if [ -d "$ROOT/.claude" ]; then
+  if [ ! -f "$ROOT/.claude/output-styles/brainbox.md" ]; then
+    echo "STOP. The brain's voice file .claude/output-styles/brainbox.md has gone. Nothing"
+    echo "works properly without it. Tell the owner, and do not carry on as if it is fine."
+  elif ! grep -q "BrainBox" "$ROOT/.claude/settings.json" 2>/dev/null; then
+    echo "STOP. .claude/settings.json no longer sets the BrainBox voice. Put it back:"
+    echo '{ "outputStyle": "BrainBox" }'
   fi
 fi
 

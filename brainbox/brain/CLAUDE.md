@@ -144,6 +144,10 @@ You do not have to remember these three. They are checked automatically and you 
 - **A new file with no opening line or no date gets flagged**, so rule 6 holds even in a long
   session.
 - **A new file missing from `Catalogue.md` gets flagged**, so rule 7 holds.
-- **A heading removed from `About me.md` gets flagged**, so your job list cannot vanish.
+- **Anything taken out of the four files that came with this brain gets flagged** —
+  `About me.md`, `CLAUDE.md`, `Catalogue.md` and `START HERE.md`. You may add to those files.
+  You may not rebuild one around headings of your own, and you may not drop a line from the
+  catalogue.
+- **Switching off the brain's own voice gets flagged.**
 
 Everything else on the list is yours to hold.

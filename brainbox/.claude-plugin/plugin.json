@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.1.1",
-  "description": "BrainBox 0.1.1: the brain can no longer delete its own job list. In the first real conversation on 0.1.0 it rewrote About me.md around headings of its own, so all eleven questions it still had to ask disappeared with nothing to say so. The headings About me.md ships with are now recorded when the brain is built, and a check names any that go missing. Also fixes a counting fault that printed an error once every blank was answered."
+  "version": "0.1.2",
+  "description": "BrainBox 0.1.2: the brain can no longer quietly switch off any part of itself. It rewrote About me.md around headings of its own in the first real conversation, losing five questions it had never asked. The same could have happened to the rule book, the catalogue and the welcome page, and the brain could have switched off its own voice. All of it is now checked: the headings and catalogue entries the four shipped files came with are recorded when the brain is built, and anything that goes missing is named."
 }

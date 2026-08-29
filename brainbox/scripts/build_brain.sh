@@ -48,9 +48,17 @@ mkdir -p "$ROOT/.claude/output-styles"
 cp "$SRC/dot_claude/settings.json" "$ROOT/.claude/settings.json"
 cp "$SRC/dot_claude/output-styles/brainbox.md" "$ROOT/.claude/output-styles/brainbox.md"
 
-# The headings About me.md ships with. The after-write check compares against this, so a
-# heading cannot quietly disappear and take a question with it.
-grep '^## ' "$SRC/About me.md" > "$MARKER/about-headings.txt"
+# Every heading in the four files that shipped with this brain. The after-write check
+# compares against this list, so the brain cannot rewrite one of its own files around
+# headings of its own and quietly lose what was in it.
+{
+  for f in "About me.md" "CLAUDE.md" "START HERE.md"; do
+    grep -H '^#\{1,3\} ' "$SRC/$f" 2>/dev/null | sed "s|^$SRC/||"
+  done
+  # Catalogue.md is a list, not headings, so watch the things it lists instead. Losing a line
+  # from it is how a file stops being findable.
+  grep -o '`[^`]*`' "$SRC/Catalogue.md" 2>/dev/null | sed 's|^|Catalogue.md:|'
+} > "$MARKER/shipped-headings.txt"
 
 echo "$NOW - CREATED the brain: $FOLDERS, rule book, About me, Catalogue, START HERE" >> "$LOG"
 echo "$NOW" >> "$MARKER/setup-done.txt"
