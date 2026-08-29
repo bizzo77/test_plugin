@@ -15,7 +15,7 @@
 set -u
 
 ROOT="${CLAUDE_PROJECT_DIR:-$PWD}"
-SHIPPED="$ROOT/.brainbox/shipped-headings.txt"
+SHIPPED="$ROOT/.bizbrain/shipped-headings.txt"
 
 INPUT="$(cat)"
 
@@ -26,12 +26,12 @@ NAME="${FP##*/}"
 # --- The brain's own voice. Losing it is the worst thing that can happen to how it talks. ---
 case "$FP" in
   *".claude/settings.json")
-    printf '%s' "$INPUT" | grep -qF "BrainBox" && exit 0
+    printf '%s' "$INPUT" | grep -qF "BizBrain" && exit 0
     echo "Blocked. That would switch off this brain's voice. Leave the outputStyle set to" >&2
-    echo "BrainBox." >&2
+    echo "BizBrain." >&2
     exit 2 ;;
-  *".claude/output-styles/brainbox.md")
-    printf '%s' "$INPUT" | grep -qF "name: BrainBox" && exit 0
+  *".claude/output-styles/bizbrain.md")
+    printf '%s' "$INPUT" | grep -qF "name: BizBrain" && exit 0
     echo "Blocked. That would break this brain's voice file. It must keep its name line." >&2
     exit 2 ;;
 esac

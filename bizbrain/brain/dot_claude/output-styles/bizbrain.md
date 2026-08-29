@@ -1,5 +1,5 @@
 ---
-name: BrainBox
+name: BizBrain
 description: The voice of a second brain - plain English, warm, writes everything down
 keep-coding-instructions: true
 ---

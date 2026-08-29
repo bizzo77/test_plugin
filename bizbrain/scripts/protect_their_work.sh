@@ -8,7 +8,7 @@
 #   1. deleting a file - there is never a reason to remove one from a second brain
 #   2. moving or renaming one of the four files the brain came with
 #   3. emptying a file by redirecting over it, which would get past the write check
-#   4. touching the hidden .brainbox folder, which is what the checks read
+#   4. touching the hidden .bizbrain folder, which is what the checks read
 
 set -u
 
@@ -36,12 +36,12 @@ printf '%s' "$CMD" | grep -Eq '(^|[^A-Za-z])(mv|cp)[[:space:]]' &&
   refuse "that moves or renames one of the four files this brain came with."
 
 # 3. Emptying a file by writing over it from the shell.
-printf '%s' "$CMD" | grep -Eq ">[[:space:]]*\"?[^|>]*($SHIPPED|brainbox\.md|settings\.json)" &&
+printf '%s' "$CMD" | grep -Eq ">[[:space:]]*\"?[^|>]*($SHIPPED|bizbrain\.md|settings\.json)" &&
   refuse "that writes over one of the files this brain runs on."
 
 # 4. The hidden folder the checks read.
-printf '%s' "$CMD" | grep -q '\.brainbox' &&
+printf '%s' "$CMD" | grep -q '\.bizbrain' &&
   printf '%s' "$CMD" | grep -Eq '(^|[^A-Za-z])(r[m]|mv|cp|truncate|sed[[:space:]]+-i)[[:space:]]|>' &&
-  refuse "that changes the hidden .brainbox folder, which is how this brain checks itself."
+  refuse "that changes the hidden .bizbrain folder, which is how this brain checks itself."
 
 exit 0

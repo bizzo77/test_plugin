@@ -5,7 +5,7 @@
 ## What this is
 
 A plain folder of plain files on your own computer. Nothing here is locked. You can open any
-of it in any program, and it is yours whether you keep using BrainBox or not.
+of it in any program, and it is yours whether you keep using BizBrain or not.
 
 ## What you do
 
@@ -43,5 +43,5 @@ knows about you.
 
 ## The two hidden folders
 
-`.brainbox` is how BrainBox knows this setup has already been done. `.claude` holds the rule
+`.bizbrain` is how BizBrain knows this setup has already been done. `.claude` holds the rule
 book settings. Leave both alone. Everything else you can see is yours.

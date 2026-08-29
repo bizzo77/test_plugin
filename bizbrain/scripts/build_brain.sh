@@ -13,7 +13,7 @@ set -u
 
 ROOT="${CLAUDE_PROJECT_DIR:-$PWD}"
 SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/../brain" 2>/dev/null && pwd)"
-MARKER="$ROOT/.brainbox"
+MARKER="$ROOT/.bizbrain"
 LOG="$MARKER/setup-log.txt"   # inside the hidden folder. Our log is not their file.
 NOW="$(date '+%A %d %B %Y at %I:%M:%S %p')"
 TODAY="$(date '+%-d %B %Y')"
@@ -30,10 +30,10 @@ CONTENTS="$(ls -A "$ROOT" 2>/dev/null | grep -v '^\.DS_Store$' || true)"
 # 3. Everything we are about to copy must be there FIRST. The marker is written once and
 #    the build never runs again, so a half-built brain is permanent. Check before claiming it.
 for f in "CLAUDE.md" "START HERE.md" "About me.md" "Catalogue.md" \
-         "dot_claude/settings.json" "dot_claude/output-styles/brainbox.md"; do
+         "dot_claude/settings.json" "dot_claude/output-styles/bizbrain.md"; do
   if [ ! -r "${SRC:-/nonexistent}/$f" ]; then
-    echo "BrainBox could not build this brain: $f is missing from the plugin. Nothing has been"
-    echo "created. Tell the owner to reinstall BrainBox rather than carrying on."
+    echo "BizBrain could not build this brain: $f is missing from the plugin. Nothing has been"
+    echo "created. Tell the owner to reinstall BizBrain rather than carrying on."
     exit 0
   fi
 done
@@ -58,7 +58,7 @@ stamp "Catalogue.md"
 
 mkdir -p "$ROOT/.claude/output-styles"
 cp "$SRC/dot_claude/settings.json" "$ROOT/.claude/settings.json"
-cp "$SRC/dot_claude/output-styles/brainbox.md" "$ROOT/.claude/output-styles/brainbox.md"
+cp "$SRC/dot_claude/output-styles/bizbrain.md" "$ROOT/.claude/output-styles/bizbrain.md"
 
 # Every heading in the four files that shipped with this brain. The after-write check
 # compares against this list, so the brain cannot rewrite one of its own files around

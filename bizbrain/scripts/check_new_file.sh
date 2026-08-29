@@ -8,7 +8,7 @@ set -u
 
 ROOT="${CLAUDE_PROJECT_DIR:-$PWD}"
 CAT="$ROOT/Catalogue.md"
-[ -d "$ROOT/.brainbox" ] || exit 0
+[ -d "$ROOT/.bizbrain" ] || exit 0
 
 NO_OPENING=""
 NOT_LISTED=""
@@ -44,7 +44,7 @@ EOF
 # About me.md, CLAUDE.md, Catalogue.md and START HERE.md came with this brain. The brain may
 # add to them. It may not rebuild them around headings of its own, because whatever was under
 # the old heading goes with it and nothing says so afterwards. Checked, not left to memory.
-SHIPPED="$ROOT/.brainbox/shipped-headings.txt"
+SHIPPED="$ROOT/.bizbrain/shipped-headings.txt"
 if [ -f "$SHIPPED" ]; then
   MISSING=""
   while IFS= read -r line; do
@@ -70,12 +70,12 @@ fi
 # The voice is the one thing never lost when a long session is squeezed, so switching it off
 # quietly is the worst thing that can happen to how this brain talks.
 if [ -d "$ROOT/.claude" ]; then
-  if [ ! -f "$ROOT/.claude/output-styles/brainbox.md" ]; then
-    echo "STOP. The brain's voice file .claude/output-styles/brainbox.md has gone. Nothing"
+  if [ ! -f "$ROOT/.claude/output-styles/bizbrain.md" ]; then
+    echo "STOP. The brain's voice file .claude/output-styles/bizbrain.md has gone. Nothing"
     echo "works properly without it. Tell the owner, and do not carry on as if it is fine."
-  elif ! grep -q "BrainBox" "$ROOT/.claude/settings.json" 2>/dev/null; then
-    echo "STOP. .claude/settings.json no longer sets the BrainBox voice. Put it back:"
-    echo '{ "outputStyle": "BrainBox" }'
+  elif ! grep -q "BizBrain" "$ROOT/.claude/settings.json" 2>/dev/null; then
+    echo "STOP. .claude/settings.json no longer sets the BizBrain voice. Put it back:"
+    echo '{ "outputStyle": "BizBrain" }'
   fi
 fi
 

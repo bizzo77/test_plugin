@@ -12,7 +12,7 @@ set -u
 ROOT="${CLAUDE_PROJECT_DIR:-$PWD}"
 ABOUT="$ROOT/About me.md"
 
-[ -d "$ROOT/.brainbox" ] || exit 0   # nothing built yet - not this script's job
+[ -d "$ROOT/.bizbrain" ] || exit 0   # nothing built yet - not this script's job
 
 # --- Never met them yet: the opening is the only thing that happens. ---
 ANSWERED=0
@@ -37,8 +37,8 @@ if [ -f "$ABOUT" ] && grep -q "NOTHING SAVED YET" "$ABOUT" 2>/dev/null; then
 This person's brain has not met them yet.
 
 Your first message in this session is the opening at the top of CLAUDE.md, under the heading
-THE FIRST THING YOU DO. Say it word for word, then stop and wait. Do not use their name. Do
-not greet them. Do not offer to skip it.
+THE FIRST THING YOU DO. Say it word for word, then stop and wait. Do not use their name - you
+do not know it yet. Do not add a greeting of your own on top of it. Do not offer to skip it.
 FIRST
   exit 0
 fi
