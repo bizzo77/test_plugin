@@ -39,9 +39,12 @@ printf '%s' "$CMD" | grep -Eq '(^|[^A-Za-z])(mv|cp)[[:space:]]' &&
 printf '%s' "$CMD" | grep -Eq ">[[:space:]]*\"?[^|>]*($SHIPPED|bizbrain\.md|settings\.json)" &&
   refuse "that writes over one of the files this brain runs on."
 
-# 4. The hidden folder the checks read.
-printf '%s' "$CMD" | grep -q '\.bizbrain' &&
-  printf '%s' "$CMD" | grep -Eq '(^|[^A-Za-z])(r[m]|mv|cp|truncate|sed[[:space:]]+-i)[[:space:]]|>' &&
+# 4. The hidden folder the checks read. Only changes to it - reading it is fine, and an
+#    earlier version refused any command that so much as mentioned the folder and happened
+#    to contain a > anywhere, which caught ordinary reads ending in 2>/dev/null.
+printf '%s' "$CMD" | grep -Eq '(^|[^A-Za-z])(r[m]|mv|cp|truncate|sed[[:space:]]+-i)[[:space:]][^|;&]*\.bizbrain' &&
   refuse "that changes the hidden .bizbrain folder, which is how this brain checks itself."
+printf '%s' "$CMD" | grep -Eq '>[[:space:]]*"?[^|>;& ]*\.bizbrain' &&
+  refuse "that writes into the hidden .bizbrain folder, which is how this brain checks itself."
 
 exit 0

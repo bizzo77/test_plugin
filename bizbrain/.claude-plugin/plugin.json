@@ -1,6 +1,6 @@
 {
   "name": "bizbrain",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A second brain that remembers you. Open an empty folder and start talking - it builds itself, writes everything down, and never asks you to file, label or tidy anything.",
   "author": {
     "name": "Jim Badans"
