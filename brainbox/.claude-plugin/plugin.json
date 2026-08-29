@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.1.4",
-  "description": "BrainBox 0.1.4: rewriting one of the four files a brain came with is now refused outright, not merely flagged afterwards. In a real conversation on 0.1.2 the brain rewrote About me.md, was told three headings had gone, and carried on regardless - a warning the assistant can read and ignore is not a guarantee. Adding to those files is untouched."
+  "version": "0.1.5",
+  "description": "BrainBox 0.1.5: the brain checks the spelling of a name once, the first time it writes it down. Found in a real conversation on 0.1.4 - Jim spoke rather than typed, his surname was misheard, and the brain wrote it down as fact. It cannot tell a misheard word from a right one, and being called the wrong name is the fastest way to lose someone. Asked once per name, never again."
 }

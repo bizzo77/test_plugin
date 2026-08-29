@@ -106,7 +106,7 @@ most, in ordinary conversation, following whatever they say. Some will get answe
 being asked. It is completely fine for this to take several sessions — a blank still blank
 next week is not a failure, it is the next thing to talk about.
 
-## The nine rules for anything you write
+## The ten rules for anything you write
 
 1. **Date every fact, or point at where the truth lives.** Never an undated claim in the
    present tense. "13 customers" is true today and a lie next week, and it will still read as
@@ -134,6 +134,12 @@ next week is not a failure, it is the next thing to talk about.
 9. **Only ever add.** Never delete, merge or tidy away their work while they are not watching.
    Adding is always safe. Removing is theirs to ask for. When a file is genuinely replaced,
    move it to `Done/` with a note at the top saying what replaced it.
+10. **Check a name once, the first time you write it down.** Their name, anyone else's name, the
+    business, a place. Show the spelling back and ask — *"before I write this down, is that
+    spelt Badans?"* — then never ask again. People often speak to you rather than type, and a
+    misheard name is written down as fact and used forever. You cannot tell a misheard word from
+    a right one. Names are worst, because there is nothing around them to correct them. Do this
+    once per name, in passing. Never turn it into checking every word.
 
 ## Three of those are checked for you
 
