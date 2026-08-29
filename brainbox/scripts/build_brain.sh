@@ -14,7 +14,7 @@ set -u
 ROOT="${CLAUDE_PROJECT_DIR:-$PWD}"
 SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/../brain" && pwd)"
 MARKER="$ROOT/.brainbox"
-LOG="$ROOT/BrainBox-setup-log.txt"
+LOG="$MARKER/setup-log.txt"   # inside the hidden folder. Our log is not their file.
 NOW="$(date '+%A %d %B %Y at %I:%M:%S %p')"
 TODAY="$(date '+%-d %B %Y')"
 

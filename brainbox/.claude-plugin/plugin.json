@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.1.2",
-  "description": "BrainBox 0.1.2: the brain can no longer quietly switch off any part of itself. It rewrote About me.md around headings of its own in the first real conversation, losing five questions it had never asked. The same could have happened to the rule book, the catalogue and the welcome page, and the brain could have switched off its own voice. All of it is now checked: the headings and catalogue entries the four shipped files came with are recorded when the brain is built, and anything that goes missing is named."
+  "version": "0.1.3",
+  "description": "BrainBox 0.1.3: BrainBox's own setup log no longer sits in the owner's brain. A new owner now opens their folder and sees eleven things, all of them theirs. The log moved inside the hidden .brainbox folder."
 }

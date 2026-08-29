@@ -44,4 +44,4 @@ knows about you.
 ## The two hidden folders
 
 `.brainbox` is how BrainBox knows this setup has already been done. `.claude` holds the rule
-book settings. Leave both alone.
+book settings. Leave both alone. Everything else you can see is yours.
