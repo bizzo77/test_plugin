@@ -48,6 +48,10 @@ mkdir -p "$ROOT/.claude/output-styles"
 cp "$SRC/dot_claude/settings.json" "$ROOT/.claude/settings.json"
 cp "$SRC/dot_claude/output-styles/brainbox.md" "$ROOT/.claude/output-styles/brainbox.md"
 
+# The headings About me.md ships with. The after-write check compares against this, so a
+# heading cannot quietly disappear and take a question with it.
+grep '^## ' "$SRC/About me.md" > "$MARKER/about-headings.txt"
+
 echo "$NOW - CREATED the brain: $FOLDERS, rule book, About me, Catalogue, START HERE" >> "$LOG"
 echo "$NOW" >> "$MARKER/setup-done.txt"
 exit 0

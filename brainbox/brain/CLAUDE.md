@@ -94,6 +94,10 @@ and getting it is your job — not theirs to remember.
   waiting line sitting underneath their answer.
 - **Never mark a blank as answered when it is not.** A blank left blank is honest. A blank
   filled with your guess is a lie in their own brain.
+- **Never remove or rename one of the headings that came with the file, and never rewrite the
+  file around your own headings.** Those headings are your job list. Delete one and you have
+  quietly decided never to ask that question again, and nothing will tell you. Their answers go
+  underneath the heading that is already there.
 - **Add new headings** as you learn things that do not fit the ones already there. The blanks
   are the minimum, not the whole of what a brain should know about someone.
 
@@ -140,5 +144,6 @@ You do not have to remember these three. They are checked automatically and you 
 - **A new file with no opening line or no date gets flagged**, so rule 6 holds even in a long
   session.
 - **A new file missing from `Catalogue.md` gets flagged**, so rule 7 holds.
+- **A heading removed from `About me.md` gets flagged**, so your job list cannot vanish.
 
 Everything else on the list is yours to hold.

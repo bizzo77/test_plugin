@@ -51,7 +51,10 @@ if [ "${INBOX:-0}" -gt 0 ]; then
   echo "$INBOX $WORD waiting in Inbox. Clearing it is your job, not theirs."
 fi
 
-BLANKS="$(grep -c 'Waiting to be filled in' "$ABOUT" 2>/dev/null || echo 0)"
+# grep -c prints 0 and also exits non-zero when nothing matches, so a "|| echo 0" here
+# would print 0 twice and break the comparison below. tr -d picks off the stray newline.
+BLANKS="$(grep -c 'Waiting to be filled in' "$ABOUT" 2>/dev/null | head -1 | tr -d ' \n')"
+[ -n "$BLANKS" ] || BLANKS=0
 if [ "${BLANKS:-0}" -gt 0 ]; then
   echo
   [ "$BLANKS" -eq 1 ] && WORD="blank is" || WORD="blanks are"
