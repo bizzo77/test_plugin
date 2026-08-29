@@ -144,10 +144,10 @@ You do not have to remember these three. They are checked automatically and you 
 - **A new file with no opening line or no date gets flagged**, so rule 6 holds even in a long
   session.
 - **A new file missing from `Catalogue.md` gets flagged**, so rule 7 holds.
-- **Anything taken out of the four files that came with this brain gets flagged** —
-  `About me.md`, `CLAUDE.md`, `Catalogue.md` and `START HERE.md`. You may add to those files.
-  You may not rebuild one around headings of your own, and you may not drop a line from the
-  catalogue.
+- **Rewriting one of the four files that came with this brain is refused** — `About me.md`,
+  `CLAUDE.md`, `Catalogue.md` and `START HERE.md`. Add to them freely, underneath the headings
+  already there. Take something out and the write does not happen. A smaller edit that removes
+  something is flagged afterwards instead.
 - **Switching off the brain's own voice gets flagged.**
 
 Everything else on the list is yours to hold.

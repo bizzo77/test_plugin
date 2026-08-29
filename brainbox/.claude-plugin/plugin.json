@@ -1,5 +1,5 @@
 {
   "name": "brainbox",
-  "version": "0.1.3",
-  "description": "BrainBox 0.1.3: BrainBox's own setup log no longer sits in the owner's brain. A new owner now opens their folder and sees eleven things, all of them theirs. The log moved inside the hidden .brainbox folder."
+  "version": "0.1.4",
+  "description": "BrainBox 0.1.4: rewriting one of the four files a brain came with is now refused outright, not merely flagged afterwards. In a real conversation on 0.1.2 the brain rewrote About me.md, was told three headings had gone, and carried on regardless - a warning the assistant can read and ignore is not a guarantee. Adding to those files is untouched."
 }

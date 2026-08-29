@@ -3,8 +3,14 @@
     "SessionStart": [
       {
         "hooks": [
-          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/build_brain.sh\"" },
-          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/open_session.sh\"" }
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/build_brain.sh\""
+          },
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/open_session.sh\""
+          }
         ]
       }
     ],
@@ -12,7 +18,19 @@
       {
         "matcher": "Bash",
         "hooks": [
-          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/protect_their_work.sh\"" }
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/protect_their_work.sh\""
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/protect_shipped_files.sh\""
+          }
         ]
       }
     ],
@@ -20,7 +38,10 @@
       {
         "matcher": "Write|Edit",
         "hooks": [
-          { "type": "command", "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/check_new_file.sh\"" }
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/check_new_file.sh\""
+          }
         ]
       }
     ]
