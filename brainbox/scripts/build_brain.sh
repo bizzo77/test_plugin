@@ -12,7 +12,7 @@
 set -u
 
 ROOT="${CLAUDE_PROJECT_DIR:-$PWD}"
-SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/../brain" && pwd)"
+SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/../brain" 2>/dev/null && pwd)"
 MARKER="$ROOT/.brainbox"
 LOG="$MARKER/setup-log.txt"   # inside the hidden folder. Our log is not their file.
 NOW="$(date '+%A %d %B %Y at %I:%M:%S %p')"
@@ -27,17 +27,29 @@ FOLDERS="Inbox Today People Projects Knowledge Decisions Done"
 CONTENTS="$(ls -A "$ROOT" 2>/dev/null | grep -v '^\.DS_Store$' || true)"
 [ -n "$CONTENTS" ] && exit 0
 
-# 3. The lock. Only one of the simultaneous sessions wins this.
+# 3. Everything we are about to copy must be there FIRST. The marker is written once and
+#    the build never runs again, so a half-built brain is permanent. Check before claiming it.
+for f in "CLAUDE.md" "START HERE.md" "About me.md" "Catalogue.md" \
+         "dot_claude/settings.json" "dot_claude/output-styles/brainbox.md"; do
+  if [ ! -r "${SRC:-/nonexistent}/$f" ]; then
+    echo "BrainBox could not build this brain: $f is missing from the plugin. Nothing has been"
+    echo "created. Tell the owner to reinstall BrainBox rather than carrying on."
+    exit 0
+  fi
+done
+
+# 4. The lock. Only one of the simultaneous sessions wins this.
 if ! mkdir "$MARKER" 2>/dev/null; then
   echo "checked $NOW - another session was already setting up, nothing created" >> "$LOG"
   exit 0
 fi
 
-# 4. The winner builds.
+# 5. The winner builds.
 for d in $FOLDERS; do mkdir -p "$ROOT/$d"; done
 
 stamp () {  # copy one file, putting the date where the placeholders are
-  sed -e "s/{{TODAY}}/$TODAY/g" -e "s/{{NOW}}/$NOW/g" "$SRC/$1" > "$ROOT/$1"
+  sed -e "s/{{TODAY}}/$TODAY/g" -e "s/{{NOW}}/$NOW/g" "$SRC/$1" > "$ROOT/$1.part" &&
+  [ -s "$ROOT/$1.part" ] && mv "$ROOT/$1.part" "$ROOT/$1"
 }
 stamp "CLAUDE.md"
 stamp "START HERE.md"

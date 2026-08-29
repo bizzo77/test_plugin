@@ -37,7 +37,7 @@ while IFS= read -r f; do
   esac
 done <<EOF
 $(find "$ROOT/Today" "$ROOT/People" "$ROOT/Projects" "$ROOT/Knowledge" "$ROOT/Decisions" \
-      -type f -name '*.md' 2>/dev/null | head -60)
+      -type f -name '*.md' -mtime -2 2>/dev/null | head -60)
 EOF
 
 # --- Have any of the four shipped files been rewritten? ---

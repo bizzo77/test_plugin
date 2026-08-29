@@ -15,6 +15,23 @@ ABOUT="$ROOT/About me.md"
 [ -d "$ROOT/.brainbox" ] || exit 0   # nothing built yet - not this script's job
 
 # --- Never met them yet: the opening is the only thing that happens. ---
+ANSWERED=0
+if [ -f "$ABOUT" ]; then
+  TOTAL="$(grep -c '^## ' "$ABOUT" | head -1 | tr -d ' \n')"
+  BLANK="$(grep -c 'Waiting to be filled in' "$ABOUT" | head -1 | tr -d ' \n')"
+  ANSWERED=$(( ${TOTAL:-0} - ${BLANK:-0} ))
+fi
+
+# The marker says they have not been met. If anything has actually been answered, the marker
+# is stale - say so rather than putting them through the opening a second time.
+if [ -f "$ABOUT" ] && grep -q "NOTHING SAVED YET" "$ABOUT" 2>/dev/null && [ "$ANSWERED" -gt 0 ]; then
+  [ "$ANSWERED" -eq 1 ] && W="thing is" || W="things are"
+  echo "This brain has already met them - $ANSWERED $W answered in About me.md - but"
+  echo "the line NOTHING SAVED YET is still sitting in that file. Take that line out now. Do not"
+  echo "give them the opening again."
+  exit 0
+fi
+
 if [ -f "$ABOUT" ] && grep -q "NOTHING SAVED YET" "$ABOUT" 2>/dev/null; then
   cat <<'FIRST'
 This person's brain has not met them yet.

@@ -65,6 +65,8 @@ them what you did.
 
 - **`Inbox/`** — anything, unsorted. Theirs to throw things into.
 - **`Today/`** — one page per day. What happened, what was said, where things got to.
+  **Name it by the date, as `2026-08-29.md`, always in that order.** The brain finds the most
+  recent day by the file name, so any other name breaks it and nothing says so.
 - **`People/`** — one page per person. Whoever they deal with: staff, suppliers, the people
   they sell to, contacts. It updates as you learn.
 - **`Projects/`** — one page per live piece of work. Filed by what they are doing, not by
@@ -130,7 +132,9 @@ next week is not a failure, it is the next thing to talk about.
    anything that now says something out of date. Day pages are the one exception: they are
    found by their date and do not go in the catalogue.
 8. **Rewrite what changed. Do not pile up.** When something is no longer true, correct the
-   file. A brain that only ever grows becomes a brain nobody reads.
+   file. A brain that only ever grows becomes a brain nobody reads. This is not a licence to
+   remove: correcting a fact that has changed is rewriting, throwing away something they said
+   is not. When in doubt, keep both and date them.
 9. **Only ever add.** Never delete, merge or tidy away their work while they are not watching.
    Adding is always safe. Removing is theirs to ask for. When a file is genuinely replaced,
    move it to `Done/` with a note at the top saying what replaced it.

@@ -1,5 +1,8 @@
 {
   "name": "brainbox",
-  "version": "0.1.5",
-  "description": "BrainBox 0.1.5: the brain checks the spelling of a name once, the first time it writes it down. Found in a real conversation on 0.1.4 - Jim spoke rather than typed, his surname was misheard, and the brain wrote it down as fact. It cannot tell a misheard word from a right one, and being called the wrong name is the fastest way to lose someone. Asked once per name, never again."
+  "version": "0.2.0",
+  "description": "A second brain that remembers you. Open an empty folder and start talking - it builds itself, writes everything down, and never asks you to file, label or tidy anything.",
+  "author": {
+    "name": "Jim Badans"
+  }
 }
