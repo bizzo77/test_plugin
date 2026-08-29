@@ -36,8 +36,20 @@ printf '%s' "$CMD" | grep -Eq '(^|[^A-Za-z])(mv|cp)[[:space:]]' &&
   refuse "that moves or renames one of the four files this brain came with."
 
 # 3. Emptying a file by writing over it from the shell.
-printf '%s' "$CMD" | grep -Eq ">[[:space:]]*\"?[^|>]*($SHIPPED|bizbrain\.md|settings\.json)" &&
-  refuse "that writes over one of the files this brain runs on."
+#    Judge only what the redirect points AT. An earlier version searched the whole command,
+#    so writing a note that merely mentioned one of these file names was refused - and a note
+#    about a file is not a change to that file.
+#    A quoted target is read whole, so a file name with a space in it is still seen.
+#    Backslashes are stripped first: they survive the trip through the message and would
+#    otherwise hide a quoted name like "About me.md".
+PLAIN="$(printf '%s' "$CMD" | tr -d '\\')"
+REDIRECT="$(printf '%s' "$PLAIN" | sed -n 's/.*[^>2]>[[:space:]]*"\([^"]*\)".*/\1/p' | head -1)"
+[ -n "$REDIRECT" ] ||
+  REDIRECT="$(printf '%s' "$PLAIN" | sed -n 's/.*[^>2]>[[:space:]]*\([^"[:space:];|&]*\).*/\1/p' | head -1)"
+if [ -n "$REDIRECT" ]; then
+  printf '%s' "$REDIRECT" | grep -Eq "($SHIPPED|bizbrain\.md|settings\.json)$" &&
+    refuse "that writes over one of the files this brain runs on."
+fi
 
 # 4. The hidden folder the checks read. Only changes to it - reading it is fine, and an
 #    earlier version refused any command that so much as mentioned the folder and happened
