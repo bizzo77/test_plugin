@@ -16,6 +16,15 @@ INPUT="$(cat)"
 CMD="$(printf '%s' "$INPUT" | sed -n 's/.*"command"[[:space:]]*:[[:space:]]*"\(.*\)".*/\1/p' | head -1)"
 [ -n "$CMD" ] || CMD="$INPUT"
 
+# Every quote mark in the command arrives written as \" , because the command travels here
+# inside a message that uses quotes itself. 0.3.5 allowed for that inside check 3 only, so
+#   rm "About me.md"
+# - the quoted form, the one anyone uses for a name with a space - walked straight past
+# check 1 and the file was deleted. Live since 0.2.0. It was missed because the tests fed
+# the guard the bare command instead of the message Claude Code actually sends, so they
+# passed on input the guard never sees. Put the quotes back once, before any check runs.
+CMD="$(printf '%s' "$CMD" | sed 's/\\"/"/g')"
+
 SHIPPED='About me\.md|CLAUDE\.md|Catalogue\.md|START HERE\.md'
 
 refuse () {
