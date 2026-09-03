@@ -41,6 +41,13 @@ knows about you.
 - **It keeps asking about you** until **About me.md** is full. Answer when you feel like it.
   There is no hurry and nothing breaks if you never finish.
 
+## If this brain is for one thing in particular
+
+Trading, property, coaching, a trade, a club — anything. Say so, or type **/make-it-mine**.
+
+It will ask what the brain is for and how you already do it, ask for anything you have already
+got, then show you a written plan before it builds a thing. Nothing happens until you say yes.
+
 ## The two hidden folders
 
 `.bizbrain` is how BizBrain knows this setup has already been done. `.claude` holds the rule
